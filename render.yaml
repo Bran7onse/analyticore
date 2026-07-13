@@ -16,22 +16,18 @@ services:
         fromDatabase:
           name: analyticore-db
           property: host
-
       - key: POSTGRES_PORT
         fromDatabase:
           name: analyticore-db
           property: port
-
       - key: POSTGRES_DB
         fromDatabase:
           name: analyticore-db
           property: database
-
       - key: POSTGRES_USER
         fromDatabase:
           name: analyticore-db
           property: user
-
       - key: POSTGRES_PASSWORD
         fromDatabase:
           name: analyticore-db
@@ -48,13 +44,8 @@ services:
         fromDatabase:
           name: analyticore-db
           property: connectionString
-
       - key: JAVA_SERVICE_URL
-        fromService:
-          type: web
-          name: analyticore-java
-          property: hostport
-
+        sync: false
       - key: CORS_ORIGINS
         sync: false
 
