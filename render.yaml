@@ -58,4 +58,4 @@ services:
     dockerCommand: nginx -g 'daemon off;'
     envVars:
       - key: VITE_API_URL
-        sync: false
+        value: https://analyticore-python-2ba9.onrender.com
