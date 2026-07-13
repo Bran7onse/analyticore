@@ -1,7 +1,19 @@
 # AnalytiCore
 
 Prototipo políglota para análisis simple de sentimiento y extracción de palabras clave. Implementa React, FastAPI, Spring Boot y PostgreSQL, comunicados mediante API REST y organizados con arquitectura limpia.
+## Aplicación desplegada
 
+Frontend público:
+
+https://analyticore-frontend-y3jh.onrender.com
+
+API Swagger:
+
+https://analyticore-python-2ba9.onrender.com/docs
+
+Healthcheck Java:
+
+https://analyticore-java-vf8y.onrender.com/actuator/health
 ## Requisitos
 
 - Docker Engine con Docker Compose v2, para la ejecución recomendada.
