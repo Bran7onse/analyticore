@@ -8,36 +8,60 @@ services:
   - type: web
     name: analyticore-java
     runtime: docker
+    plan: free
     rootDir: java-service
     healthCheckPath: /actuator/health
     envVars:
       - key: POSTGRES_HOST
-        fromDatabase: {name: analyticore-db, property: host}
+        fromDatabase:
+          name: analyticore-db
+          property: host
+
       - key: POSTGRES_PORT
-        fromDatabase: {name: analyticore-db, property: port}
+        fromDatabase:
+          name: analyticore-db
+          property: port
+
       - key: POSTGRES_DB
-        fromDatabase: {name: analyticore-db, property: database}
+        fromDatabase:
+          name: analyticore-db
+          property: database
+
       - key: POSTGRES_USER
-        fromDatabase: {name: analyticore-db, property: user}
+        fromDatabase:
+          name: analyticore-db
+          property: user
+
       - key: POSTGRES_PASSWORD
-        fromDatabase: {name: analyticore-db, property: password}
+        fromDatabase:
+          name: analyticore-db
+          property: password
 
   - type: web
     name: analyticore-python
     runtime: docker
+    plan: free
     rootDir: python-service
     healthCheckPath: /health
     envVars:
       - key: DATABASE_URL
-        fromDatabase: {name: analyticore-db, property: connectionString}
+        fromDatabase:
+          name: analyticore-db
+          property: connectionString
+
       - key: JAVA_SERVICE_URL
-        fromService: {type: web, name: analyticore-java, property: hostport}
+        fromService:
+          type: web
+          name: analyticore-java
+          property: hostport
+
       - key: CORS_ORIGINS
         sync: false
 
   - type: web
     name: analyticore-frontend
     runtime: docker
+    plan: free
     rootDir: frontend
     healthCheckPath: /health
     dockerCommand: nginx -g 'daemon off;'
