@@ -1,0 +1,10 @@
+# AnalytiCore — Informe ejecutivo
+
+AnalytiCore responde a una necesidad frecuente de equipos pequeños: convertir rápidamente comentarios, reseñas y otros textos libres en información que ayude a tomar decisiones. Revisar ese contenido manualmente consume tiempo, produce resultados inconsistentes y se vuelve inviable conforme aumenta el volumen.
+
+La solución propuesta es una aplicación web donde una persona envía un texto y recibe dos señales inmediatas: su sentimiento general —positivo, negativo o neutral— y las palabras clave más relevantes. El prototipo combina una interfaz React sencilla, un servicio Python que valida y registra las solicitudes, y un servicio Java especializado que ejecuta el análisis. PostgreSQL conserva de forma centralizada cada trabajo y su resultado, lo que permite consultar el avance sin perder información. Todos los componentes se distribuyen en contenedores Docker y pueden ejecutarse localmente o desplegarse en Render.
+
+Esta arquitectura aporta valor desde el prototipo y permite evolucionar sin rehacer el sistema. Cada servicio puede crecer de manera independiente cuando aumente la demanda; por ejemplo, se pueden añadir más instancias del analizador sin modificar la interfaz. La separación en capas mantiene las reglas de negocio aisladas de frameworks y bases de datos, facilitando las pruebas, el mantenimiento y el reemplazo de tecnologías. Las API REST establecen contratos claros entre equipos. La combinación de React, Python y Java permite que cada grupo trabaje con la tecnología más apropiada para su responsabilidad, conservando una integración uniforme. Al mantener los servicios sin estado y guardar los trabajos en PostgreSQL, los reinicios o escalados no eliminan resultados y la operación en la nube es más confiable.
+
+En conjunto, AnalytiCore demuestra con bajo riesgo la viabilidad técnica y comercial de un servicio de análisis de texto, a la vez que deja una base preparada para incorporar modelos más avanzados, nuevos tipos de análisis y mayores volúmenes de usuarios.
+
