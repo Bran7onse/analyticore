@@ -156,7 +156,7 @@ export function AnalysisResult({ job }: AnalysisResultProps) {
 
       <div className="result-footer">
         <span className="job-reference">
-          Trabajo: {job.job_id.slice(0, 8)}…
+          Trabajo: {job.job_id}
         </span>
 
         <button
